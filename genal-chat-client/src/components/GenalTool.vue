@@ -2,7 +2,7 @@
   <div class="tool">
     <div class="tool-avatar">
       <div class="tool-avatar-img" @click="showUserInfo('showUserModal')">
-        <img v-if="user" :src="user.avatar" alt="" />
+        <img v-if="user" :src="'http://localhost:3000/' + user.avatar" alt="" />
       </div>
       <div class="tool-avatar-name">{{ user.username }}</div>
     </div>

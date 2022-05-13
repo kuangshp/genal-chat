@@ -1,1 +1,1 @@
-export const socketUrl = '/api';
+export const socketUrl = 'http://localhost:3000';

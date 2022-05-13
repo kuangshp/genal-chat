@@ -9,7 +9,8 @@ import { join } from 'path';
 async function bootstrap() {
   // const app = await NestFactory.create(AppModule);
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
-
+  //允许跨域请求
+  app.enableCors();
   // 全局中间件
   app.use(logger);
 
@@ -21,10 +22,10 @@ async function bootstrap() {
 
   // 配置静态资源
   app.useStaticAssets(join(__dirname, '../public', '/'), {
-    prefix: '/', 
+    prefix: '/',
     setHeaders: res => {
-      res.set('Cache-Control', 'max-age=2592000')
-    }
+      res.set('Cache-Control', 'max-age=2592000');
+    },
   });
 
   await app.listen(3000);
